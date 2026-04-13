@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1776054883 source:c:\users\computer city\downloads\cse420-computer-graphics-lab-works-and-other\lab2_home_task\main.cpp
+	<windows.h>
+	<GL/gl.h>
+	<GL/glut.h>
+

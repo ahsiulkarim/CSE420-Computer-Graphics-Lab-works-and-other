@@ -1,0 +1,316 @@
+#include <windows.h>
+#include <GL/gl.h>
+#include <GL/glut.h>
+#include <string.h>
+#include <math.h>
+// Function to draw text on screen
+void drawText(float x, float y, const char* text) {
+glRasterPos2f(x, y);
+for (int i = 0; i < strlen(text); i++) {
+glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, text[i]);
+}
+}
+
+//Draw Heading
+void drawHext(float x, float y, const char* text) {
+glRasterPos2f(x, y);
+for (int i = 0; i < strlen(text); i++) {
+glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[i]);
+}
+}
+
+// Function to draw a circle
+void drawCircle(float cx, float cy, float radius)
+{
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < 360; i++)
+    {
+        float theta = i * (M_PI / 180.0f);
+        float x = radius * cos(theta) + cx;
+        float y = radius * sin(theta) + cy;
+        glVertex2f(x, y);
+    }
+    glEnd();
+}
+
+// Display callback function to render the shapes
+void display(void)
+{
+glClear(GL_COLOR_BUFFER_BIT);
+
+//glBegin(GL_LINES); //Draw single line
+//glBegin(GL_LINE_LOOP);  //Draw borders of any shapes
+/*
+//Heading
+glColor3f(0.0f, 0.0f, 0.0f); // Red
+drawHext(40, 92, "ALL GEOMARTRIC SHAPES");
+
+// Triangle
+glColor3f(0.9f, 0.1f, 0.1f); // Red
+glBegin(GL_TRIANGLES);
+glVertex2f(5, 70);
+glVertex2f(25, 70);
+glVertex2f(15, 87);
+glEnd();
+drawText(13, 65, "3 edges");
+
+// Parallelogram
+glColor3f(0.0f, 0.8f, 0.4f); // Teal
+glBegin(GL_QUADS);
+glVertex2f(30, 70);
+glVertex2f(45, 70);
+glVertex2f(50, 87);
+glVertex2f(35, 87);
+glEnd();
+drawText(35, 65, "4 edges");
+
+// Square
+glColor3f(0.0f, 0.4f, 0.9f); // Blue
+glBegin(GL_QUADS);
+glVertex2f(55, 70);
+glVertex2f(70, 70);
+glVertex2f(70, 87);
+glVertex2f(55, 87);
+glEnd();
+drawText(60, 65, "4 edges");
+
+
+glEnd();
+
+// Circle
+glColor3f(0.9f, 0.2f, 1.0f);
+drawCircle(85, 78, 8);
+glEnd();
+drawText(83, 6, "Circle");
+*/
+
+//sky
+glColor3f(0.68f, 0.82f, 0.95f);
+glBegin(GL_QUADS);
+glVertex2f(0,32);
+glVertex2f(0,100);
+glVertex2f(100,100);
+glVertex2f(100,32);
+glEnd();
+//grass
+glColor3f(0.35f, 0.65f, 0.2f);
+glBegin(GL_QUADS);
+glVertex2f(0,0);
+glVertex2f(0,20);
+glVertex2f(100,20);
+glVertex2f(100,0);
+glEnd();
+
+//road
+glColor3f(0.50f, 0.50f, 0.52f);
+glBegin(GL_QUADS);
+glVertex2f(0,0);
+glVertex2f(0,30);
+glVertex2f(100,30);
+glVertex2f(100,20);
+glEnd();
+
+// Circle
+glColor3f(0.9f, 0.2f, 1.0f);
+drawCircle(48,45 ,8);
+glEnd();
+
+//stepslower
+glColor3f(0.80f, 0.08f, 0.08f);
+glBegin(GL_QUADS);
+glVertex2f(20,20);
+glVertex2f(20,22);
+glVertex2f(80,22);
+glVertex2f(80,20);
+glEnd();
+
+//stepsupper
+glColor3f(0.095f, 0.65f, 0.65f);
+glBegin(GL_QUADS);
+glVertex2f(22,22);
+glVertex2f(21,23);
+glVertex2f(79,24);
+glVertex2f(80,22);
+glEnd();
+
+//stepslower
+glColor3f(0.80f, 0.08f, 0.08f);
+glBegin(GL_QUADS);
+glVertex2f(22,23);
+glVertex2f(22,25);
+glVertex2f(78,25);
+glVertex2f(78,23);
+glEnd();
+
+//stepsupper
+glColor3f(0.095f, 0.65f, 0.65f);
+glBegin(GL_QUADS);
+glVertex2f(22,25);
+glVertex2f(23,26);
+glVertex2f(77,26);
+glVertex2f(78,25);
+glEnd();
+
+//stepslower
+glColor3f(0.80f, 0.08f, 0.08f);
+glBegin(GL_QUADS);
+glVertex2f(26,29);
+glVertex2f(26,33);
+glVertex2f(75,33);
+glVertex2f(75,29);
+glEnd();
+
+
+
+//moments Pillar
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(4.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(30,33);
+glVertex2f(30, 43);
+glVertex2f(35, 43);
+glVertex2f(34, 33);
+glEnd();
+
+
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(5.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(36 ,33);
+glVertex2f(36 ,55);
+glVertex2f(40 , 55);
+glVertex2f(40 , 33);
+glEnd();
+
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(7.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(44 , 33);
+glVertex2f(44 , 60);
+glVertex2f(52 , 60);
+glVertex2f(52 ,33);
+glEnd();
+//Middlepiller
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(4.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(46,33);
+glVertex2f(46, 60);
+glEnd();
+
+
+
+
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(5.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(56,33);
+glVertex2f(56 , 60);
+glVertex2f(60 , 55);
+glVertex2f(60 ,33);
+glEnd();
+
+
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(5.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(62,33);
+glVertex2f(62 , 43);
+glVertex2f(66 , 43);
+glVertex2f(66 ,33);
+glEnd();
+
+
+//trees
+
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(5.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(76,33);
+glVertex2f(76 , 40);
+glVertex2f(74 , 45);
+glEnd();
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(8.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(76,33);
+glVertex2f(76,40);
+glEnd();
+
+glColor3f(1.0f, 1.0f, 1.0f);
+glLineWidth(8.0f);
+glBegin(GL_LINE_STRIP);
+glVertex2f(76,33);
+glVertex2f(76,40);
+glVertex2f(78,45);
+glEnd();
+
+//trees leves
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(70, 45, 3);
+glEnd();
+
+
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(70, 44, 3);
+glEnd();
+
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(74, 44, 3);
+glEnd();
+
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(78, 44, 3);
+glEnd();
+
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(82, 44, 3);
+glEnd();
+
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(68, 46, 8);
+glEnd();
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(72, 46, 3);
+glEnd();
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(76, 46, 8);
+glEnd();
+// Circle
+glColor3f(0.25f, 0.55f, 0.18f);
+drawCircle(80,46 ,3);
+glEnd();
+
+}
+
+
+// Initialization
+void init(void)
+{
+glClearColor(1.0, 1.0, 1.0, 1.0); //Background Color
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(0.0, 100.0, 0.0, 100.0, -1.0, 1.0);
+}
+
+int main(int argc, char** argv)
+{
+
+glutInit(&argc, argv);
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize(1000, 1000); //Display Size
+glutInitWindowPosition(0,0);
+glutCreateWindow("Basic Shapes in OpenGL (Using glVertex3f)");  //Title
+init();
+glutDisplayFunc(display);
+glutMainLoop();
+return 0;
+}
